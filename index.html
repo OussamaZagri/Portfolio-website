@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Oussama ZAGRI's Portfolio</title>
+    <link rel="stylesheet" href="style.css">
+
+</head>
+<body>
+    <nav id="navbar">
+        <div class="nav-container">
+            <a href="#" class="logo">
+                <img src="img/WhiteLogo.png" alt="Logo" />
+            </a>
+            <ul class="nav-menu">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#projects">Contact us</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <div class="hero-image">
+                <img src="img/profile.png" alt="Profile image" />
+            </div>
+            <h2>Hi there, I am Oussama ZAGRI</h2>
+            <h4 class="hero-title">Brand Designer & Social Media Marketer </h4>
+            <p class="hero-subtitle">Creating unique identities that make brands unforgettable</p>
+        </div>
+    </section>
+
+    <section id="services" class="services">
+        <div class="services-container">
+            <h2>Services</h2>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">🎨</div>
+                    <h3 class="service-title">Branding Design</h3>
+                    <p class="service-description">Complete brand identity creation including logos, color schemes, and brand guidelines that resonate with your target audience.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">📱</div>
+                    <h3 class="service-title">Social Media Marketing</h3>
+                    <p class="service-description">Cohesive your social media presence with custom templates, stories, and post for ads that engage your audience.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">🖨️</div>
+                    <h3 class="service-title">Print Design</h3>
+                    <p class="service-description">Professional print materials including business cards, brochures, packaging, and marketing collateral.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="projects" class="bottom-animation">
+        <div class="floating-elements">
+            <div class="floating-element"></div>
+            <div class="floating-element"></div>
+            <div class="floating-element"></div>
+        </div>
+        <div class="contact-cta">
+            <h3>Ready to Transform Your Brand?</h3>
+            <p>Let's create something extraordinary together</p>
+            <button class="cta-button contact-link">Contact us</button>
+        </div>
+    </section>
+
+    <!-- Contact Modal -->
+    <div id="contactModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            
+            <div class="form-container">
+                <h2>Get In Touch</h2>
+                <p class="form-subtitle">Let's discuss your brand vision</p>
+                
+                <div id="successMessage" class="success-message">
+                    Thank you! Your message has been sent successfully. I'll get back to you soon!
+                </div>
+                
+                <div id="errorMessage" class="error-message">
+                    Sorry, there was an error sending your message. Please try again.
+                </div>
+                
+                <form id="contactForm">
+                    <div class="form-group">
+                        <label for="fullName">Full Name *</label>
+                        <input type="text" id="fullName" name="fullName" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="email">Email *</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="phone">Phone Number *</label>
+                        <input type="text" id="phone" name="phone" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="service">Service Needed *</label>
+                        <select id="service" name="service" required>
+                            <option value="">Select a service...</option>
+                            <option value="branding-design">Branding Design</option>
+                            <option value="social-media-Marketing">Social Media Marketing</option>
+                            <option value="print-design">Print Design</option>
+                            <option value="logo-design">Logo + business Card Design</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="message">Project Details (Optional)</label>
+                        <textarea id="message" name="message" placeholder="Tell me about your project, goals, and vision..."></textarea>
+                    </div>
+                    
+                    <button type="submit" class="submit-btn">Send Message</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <footer class="social-footer">
+    <div class="social-icons">
+        <a href="https://www.linkedin.com/in/oussamazagri/" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+        <a href="https://www.behance.net/oussamazagri/" target="_blank"><i class="fab fa-behance"></i></a>
+        <!-- <a href="https://www.instagram.com/your-profile" target="_blank"><i class="fab fa-instagram"></i></a> -->
+    </div>
+</footer>
+<script src="script.js"></script>
+
+<!-- --------------------------------->
+<!-- Load EmailJS SDK -->
+<script src="https://cdn.emailjs.com/dist/email.min.js"></script>
+<script>
+  // Initialize EmailJS with your public key
+  (function() {
+    emailjs.init("AoGc7S8mGAI1prXgC"); // Replace with your EmailJS Public Key
+  })();
+
+  // Handle form submission
+  document.getElementById("contactForm").addEventListener("submit", function(e) {
+    e.preventDefault();
+
+    emailjs.sendForm("service_oz.agency", "template_fd4y3p6", this)
+      .then(function(response) {
+        alert("Message sent successfully!");
+        document.getElementById("contactForm").reset();
+      }, function(error) {
+        alert("Failed to send message. Error: " + JSON.stringify(error));
+      });
+  });
+</script>
+
+
+</body>
+</html>
